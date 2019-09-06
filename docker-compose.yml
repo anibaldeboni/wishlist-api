@@ -1,0 +1,20 @@
+version: '3'
+services:
+  app:
+    container_name: wishlist-api
+    restart: always
+    build: .
+    volumes:
+      - ./:/app
+      - ./node_modules:/app/node_modules
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    ports:
+      - '3000:3000'
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
