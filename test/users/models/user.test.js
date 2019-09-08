@@ -27,7 +27,7 @@ describe('When creating a new User model', () => {
     const user = new User({ name: 'Maurício' });
 
     user.validate((err) => {
-      expect(err.errors.email.message).to.be.equal('Path `email` is required.');
+      expect(err.errors.email.message).to.be.equal('Email is required');
       done();
     });
   });
