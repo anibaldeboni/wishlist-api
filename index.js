@@ -1,20 +1,23 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const { SignUp } = require('./src/users/services');
 
 require('dotenv').config();
 
-const { DB_HOST } = process.env;
+const { DB_HOST, DB_NAME } = process.env;
 
 const app = express();
 
 app.use(bodyParser.json());
 
+mongoose.set('useCreateIndex', true);
 mongoose
-  .connect(DB_HOST, {
+  .connect(`${DB_HOST}/${DB_NAME}`, {
     useNewUrlParser: true,
   })
   .then((result) => {
+    mongoose.connection.db.dropDatabase();
     console.log('MongoDB is running');
   })
   .catch((error) => {
@@ -27,8 +30,15 @@ app.get('/health-check', (req, res) => {
   res.sendStatus(200);
 });
 
-app.post('/signup', (req, res) => {
-  res.sendStatus(501);
+app.post('/signup', async (req, res) => {
+  const { email, name, password } = req.body;
+  try {
+    const signup = new SignUp({ name, email });
+    const register = await signup.create({ password });
+    res.status(201).send(register);
+  } catch (error) {
+    res.status(error.status).send(error.message);
+  }
 });
 
 app.post('/auth', (req, res) => {
