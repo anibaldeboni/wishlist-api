@@ -6,6 +6,7 @@
   },
   "rules": {
     "no-console": "off",
+    "no-underscore-dangle": "off",
     "max-len": ["error", {
       "ignoreComments": true,
       "code": 200,
