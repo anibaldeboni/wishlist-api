@@ -17,7 +17,8 @@ npm install
 ## Running
 To run the application type in terminal
 
-```
+```sh
+docker-compose build
 docker-compose up
 ```
 
