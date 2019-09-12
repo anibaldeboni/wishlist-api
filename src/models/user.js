@@ -1,3 +1,5 @@
+const uuid = require('uuid/v4');
+
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     name: {
@@ -10,10 +12,16 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
     },
   }, {});
+  User.beforeCreate((user, _) => {
+    user.id = uuid();
+  });
   User.associate = function(models) {
     User.belongsToMany(models.Wish, {
       through: 'Wishlist',
       as: 'wishes',
+      foreignKey: 'user_id',
+    });
+    User.hasOne(models.Password, {
       foreignKey: 'user_id',
     });
   };

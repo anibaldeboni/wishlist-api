@@ -3,7 +3,7 @@
     "username": "root",
     "password": null,
     "database": "wishlist",
-    "host": "127.0.0.1",
+    "host": "postgresql",
     "dialect": "postgres",
     "define": {
       "timestamps": true
@@ -13,7 +13,7 @@
     "username": "root",
     "password": null,
     "database": "wishlist",
-    "host": "127.0.0.1",
+    "host": "postgresql",
     "dialect": "postgres",
     "define": {
       "timestamps": true
@@ -23,7 +23,7 @@
     "username": "root",
     "password": null,
     "database": "wishlist",
-    "host": "127.0.0.1",
+    "host": "postgresql",
     "dialect": "postgres",
     "define": {
       "timestamps": true
