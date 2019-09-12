@@ -4,14 +4,17 @@ module.exports = {
     return queryInterface.createTable('Passwords', {
       id: {
         allowNull: false,
-        autoIncrement: true,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
-        type: Sequelize.INTEGER
       },
       user_id: {
+        allowNull: false,
+        unique: true,
         type: Sequelize.STRING
       },
       password: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {

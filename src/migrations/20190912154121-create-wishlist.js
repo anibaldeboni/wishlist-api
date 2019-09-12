@@ -4,14 +4,16 @@ module.exports = {
     return queryInterface.createTable('Wishlists', {
       id: {
         allowNull: false,
-        autoIncrement: true,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
-        type: Sequelize.INTEGER
       },
       user_id: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       wish_id: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       createdAt: {

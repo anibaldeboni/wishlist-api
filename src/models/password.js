@@ -1,6 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Password = sequelize.define('Password', {
+    id: {
+      type: sequelize.UUID,
+      defaultValue: sequelize.UUIDV4,
+      primaryKey: true,
+    },
     user_id: {
       allowNull: false,
       type: DataTypes.STRING,
@@ -12,8 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   Password.associate = function(models) {
-    Password.belongsTo(models.User);
-    Password.hasOne(models.User, {
+    Password.belongsTo(models.User, {
       foreignKey: 'user_id',
       as: 'passwords',
     });

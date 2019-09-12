@@ -4,9 +4,9 @@ module.exports = {
     return queryInterface.createTable('Wishes', {
       id: {
         allowNull: false,
-        autoIncrement: true,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         primaryKey: true,
-        type: Sequelize.INTEGER
       },
       price: {
         type: Sequelize.DOUBLE
@@ -18,6 +18,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       title: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       reviewScore: {
