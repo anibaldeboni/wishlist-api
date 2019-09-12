@@ -2,7 +2,7 @@
 
 A simple NodeJS API build using
 - Express
-- MongoDB
+- PostegreSQL
 - Docker
 
 # Setup
@@ -25,7 +25,7 @@ docker-compose up
 ## Testing
 To run the tests in live-mode, type:
 ```
-npm run test
+npm run test:live
 ```
 
 To run all tests at once:
