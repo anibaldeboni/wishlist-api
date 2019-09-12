@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --quiet
+RUN npm cache clean --force && npm install
 
 RUN npm install nodemon -g --quiet
 

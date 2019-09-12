@@ -8,13 +8,18 @@ services:
       - ./:/app
       - ./node_modules:/app/node_modules
     depends_on:
-      - mongo
+      - postgres
     links:
-      - mongo
+      - postgres
     ports:
       - '3000:3000'
-  mongo:
-    container_name: mongo
-    image: mongo
+  postgres:
+    container_name: postgresql
+    hostname: postgres
+    image: postgres:10.5
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: ''
+      POSTGRES_DB: wishlist
     ports:
-      - '27017:27017'
+      - '5432:5432'
