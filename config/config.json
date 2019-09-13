@@ -9,11 +9,11 @@
       "timestamps": true
    }
   },
-  "test": {
+  "local": {
     "username": "root",
     "password": null,
     "database": "wishlist",
-    "host": "postgresql",
+    "host": "localhost",
     "dialect": "postgres",
     "define": {
       "timestamps": true

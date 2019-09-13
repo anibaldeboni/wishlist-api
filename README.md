@@ -18,8 +18,13 @@ npm install
 To run the application type in terminal
 
 ```sh
-docker-compose build
 docker-compose up
+```
+
+If it's the first time you run the application, you must create the database and run the migrations
+```sh
+createdb -h localhost -p 5432 -U root -w wishlist
+NODE_ENV=local sequelize db:migrate
 ```
 
 ## Testing
