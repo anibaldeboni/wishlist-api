@@ -11,7 +11,8 @@ module.exports = {
       user_id: {
         allowNull: false,
         unique: true,
-        type: Sequelize.STRING
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
       },
       password: {
         allowNull: false,

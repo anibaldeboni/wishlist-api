@@ -1,3 +1,4 @@
+require('dotenv').config();
 const uuid = require('uuid/v4');
 const bcrypt = require('bcryptjs');
 
@@ -23,21 +24,17 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     instanceMethods: {
-      validPassword(password) {
-        return bcrypt.compareSync(password, this.password);
+      validPassword(password, hash) {
+        return bcrypt.compareSync(password, hash);
       },
     },
 
 
   });
-  // Password.beforeCreate((passwd, _) => {
-
-  //   passwd.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(+SALT_WORK_FACTOR), null);
-  // });
   Password.associate = function (models) {
-    Password.belongsTo(models.User, {
-      foreignKey: 'user_id',
-      as: 'passwords',
+    Password.hasOne(models.User, {
+      // foreignKey: 'id',
+      as: 'users',
     });
   };
   return Password;

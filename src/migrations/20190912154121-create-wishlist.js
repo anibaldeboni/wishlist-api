@@ -10,11 +10,13 @@ module.exports = {
       },
       user_id: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
       },
       wish_id: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
       },
       createdAt: {
         allowNull: false,

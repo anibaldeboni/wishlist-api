@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     User.hasOne(models.Password, {
       foreignKey: 'user_id',
+      as: 'passwords',
     });
   };
   return User;
