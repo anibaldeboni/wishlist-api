@@ -37,6 +37,17 @@ To run all tests once:
 npm run test:once
 ```
 # Usage
+```
+[POST] /session/signup
+[POST] /session/auth
+
+[GET] /users/:id
+[PUT] /users/:id
+[DELETE] /users/:id
+
+[POST] /wishlist/:userid
+[GET] /wishlist/:userid
+```
 
 ## Registering a new user
 

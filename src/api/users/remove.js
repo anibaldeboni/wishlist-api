@@ -1,3 +1,16 @@
+const { User, Password } = require('../../models');
+
 module.exports = async (req, res) => {
-  res.sendStatus(501);
+  const { id } = req.params;
+  return User.destroy({
+    where: { id },
+  })
+    .then((deleted) => {
+      Password.destroy({
+        where: { user_id: id },
+      })
+        .then((deleted) => res.status(200).send('User successfully deleted'))
+        .catch((error) => res.status(500).send(error));
+    })
+    .catch((error) => res.status(500).send(error));
 };

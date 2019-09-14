@@ -2,7 +2,7 @@ const { User } = require('../../models');
 
 module.exports = async (req, res) => {
   const { id } = req.params;
-  User.findOne({
+  return User.findOne({
     where: { id },
     attributes: ['id', 'name', 'email'],
   })
