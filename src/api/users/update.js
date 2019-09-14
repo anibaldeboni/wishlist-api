@@ -10,6 +10,6 @@ module.exports = async (req, res) => {
   }, {
     where: { id },
   })
-    .then(() => res.status(200).send('User information updated'))
+    .then(() => res.status(201).send('User information updated'))
     .catch((error) => res.status(500).send(error));
 };
