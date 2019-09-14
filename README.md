@@ -10,7 +10,7 @@ A simple NodeJS API build using
 
 ## Installation
 ```
-git clone  [...] wishlist-api
+git clone https://github.com/anibaldeboni/wishlist-api.git
 cd ./wishlist-api
 npm install
 ```
@@ -39,7 +39,7 @@ npm run test:once
 ```
 # Usage
 ## [POST] /session/signup
-Registering a new user, return 201 if user was created or 422 is user already exists
+Registering a new user. Returns 201 if user was created or 422 is user already exists
 ```sh
 curl -X POST \
   http://localhost:3000/session/signup \
@@ -83,8 +83,14 @@ curl -X PUT \
 }'
 ```
 
-## Adding item to wishlist
+## [POST] /wishlist
+Adds an item to the user's wishlist
+```sh
+....
 ```
-[POST] /wishlist/:userid
-[GET] /wishlist/:userid
+
+## [GET] /wishlist
+Lists user's wishlist item
+```sh
+....
 ```
