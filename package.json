@@ -14,6 +14,7 @@
     "api",
     "nodejs",
     "express",
+    "sequelize",
     "docker"
   ],
   "author": "Aníbal Deboni Neto",
