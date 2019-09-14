@@ -6,10 +6,10 @@ const requireAuth = require('../../middleware/requireAuth');
 
 const router = new Router();
 
-router.delete('/:id', requireAuth, Remove);
+router.delete('/', requireAuth, Remove);
 
-router.get('/:id', requireAuth, Detail);
+router.get('/', requireAuth, Detail);
 
-router.put('/:id', requireAuth, Update);
+router.put('/', requireAuth, Update);
 
 module.exports = router;

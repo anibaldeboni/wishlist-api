@@ -1,7 +1,8 @@
 const { User, Password } = require('../../models');
 
 module.exports = async (req, res) => {
-  const { id } = req.params;
+  // const { id } = req.params;
+  const { id } = req.user.dataValues;
   return User.destroy({
     where: { id },
   })
