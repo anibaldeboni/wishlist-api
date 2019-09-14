@@ -21,7 +21,7 @@ module.exports = (passport) => passport.use(new Strategy(jwtOptions, (payload, d
         return done(null, user);
       }
 
-      return done(new Error('User not found.'), null);
+      return done('User not found.', null);
     })
     .catch((error) => done(error, false));
 }));
