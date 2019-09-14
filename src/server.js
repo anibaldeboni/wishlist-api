@@ -1,11 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const passport = require('passport');
+const passportMiddleware = require('./middleware/passport');
 const { name, version } = require('../package.json');
-// const helmet = require('helmet');
+
 const app = express();
 const api = require('./api');
 
 app.use(bodyParser.json());
+app.use(passport.initialize());
+passportMiddleware(passport);
+
 app.use(api);
 
 app.get('/', (req, res) => res.sendStatus(200));
