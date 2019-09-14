@@ -24,6 +24,7 @@ docker-compose up
 
 If it's the first time you run the application, you must run the migrations
 ```sh
+npm install -g sequelize-cli
 NODE_ENV=local sequelize db:migrate
 ```
 
