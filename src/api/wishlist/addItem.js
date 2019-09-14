@@ -6,7 +6,6 @@ module.exports = async (req, res) => {
   const { itemId } = req.body;
   return Wishlist.findOne({ where: { user_id: userId, wish_id: itemId } })
     .then((wishes) => {
-      console.log(wishes, 'wishes');
       if (wishes) { return res.status(400).send('Item already in wishlist'); }
       return magalu.getItem(itemId)
         .then(({ data }) => {
