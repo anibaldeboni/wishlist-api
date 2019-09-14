@@ -1,6 +1,6 @@
 # Wishlist API
 
-A simple NodeJS API build using
+A simple NodeJS API built using
 - Express
 - Sequelize
 - PostegreSQL
