@@ -6,11 +6,11 @@ module.exports = async (req, res) => {
   return User.destroy({
     where: { id },
   })
-    .then((deleted) => {
+    .then(() => {
       Password.destroy({
         where: { user_id: id },
       })
-        .then((deleted) => res.status(200).send('User successfully deleted'))
+        .then(() => res.status(200).send('User successfully deleted'))
         .catch((error) => res.status(500).send(error));
     })
     .catch((error) => res.status(500).send(error));
