@@ -1,5 +1,13 @@
+const uuid = require('uuid/v4');
+
 module.exports = (sequelize, DataTypes) => {
   const Wish = sequelize.define('Wish', {
+    id: {
+      allowNull: false,
+      primaryKey: true,
+      type: DataTypes.UUIDV4,
+      unique: true,
+    },
     price: DataTypes.DOUBLE,
     image: DataTypes.STRING,
     brand: DataTypes.STRING,
