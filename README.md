@@ -94,7 +94,6 @@ curl -X POST \
   -d '{
 	"itemId": "item it from items endpoint"
 }'
-....
 ```
 
 ## [GET] /wishlist
@@ -104,5 +103,4 @@ curl -X GET \
   http://localhost:3000/wishlist \
   -H 'Authorization: Bearer <auth token>' \
   -H 'Content-Type: application/json'
-....
 ```
