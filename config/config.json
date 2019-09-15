@@ -19,7 +19,7 @@
       "timestamps": true
    }
   },
-  "production": {
+  "test": {
     "username": "root",
     "password": null,
     "database": "wishlist",
