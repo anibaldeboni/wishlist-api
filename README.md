@@ -28,16 +28,6 @@ npm install -g sequelize-cli
 NODE_ENV=local sequelize db:migrate
 ```
 
-## Testing
-To run the tests in live-mode, type:
-```
-npm run test:live
-```
-
-To run all tests once:
-```
-npm run test:once
-```
 # Usage
 ## [POST] /session/signup
 Registering a new user. Returns 201 if user was created or 422 is user already exists
