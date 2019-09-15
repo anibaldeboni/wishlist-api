@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     Wish.belongsToMany(models.User, {
       through: 'Wishlist',
       as: 'users',
-      foreignKey: 'wish_id',
+      foreignKey: 'user_id',
     });
   };
   return Wish;

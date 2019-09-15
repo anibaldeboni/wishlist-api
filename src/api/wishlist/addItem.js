@@ -1,6 +1,10 @@
 const { Wish, Wishlist } = require('../../models');
 const magalu = require('../../services/magalu');
 
+function addToWishlist(res, userId, wishId) {
+
+}
+
 module.exports = async (req, res) => {
   const { id: userId } = req.user.dataValues;
   const { itemId } = req.body;
@@ -27,13 +31,19 @@ module.exports = async (req, res) => {
                   brand,
                   image,
                 })
+                  .then((created) => Wishlist.create({ user_id: userId, wish_id: created.id })
+                    .then(() => res.status(201).send('Item added to wish list'))
+                    .catch((error) => {
+                      res.status(500).send(error);
+                    }))
                   .catch((error) => res.status(500).send(error));
+              } else {
+                return Wishlist.create({ user_id: userId, wish_id: wish.id })
+                  .then(() => res.status(201).send('Item added to wish list'))
+                  .catch((error) => {
+                    res.status(500).send(error);
+                  });
               }
-              return Wishlist.create({ user_id: userId, wish_id: wish.id })
-                .then(() => res.status(201).send('Item added to wish list'))
-                .catch((error) => {
-                  res.status(500).send(error);
-                });
             })
             .catch((error) => res.status(500).send(error));
         })

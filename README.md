@@ -85,13 +85,24 @@ curl -X PUT \
 ```
 
 ## [POST] /wishlist
-Adds an item to the user's wishlist
+Adds an item to the user's wishlist. Return 201 if item successfully added or 400 if item already in list
 ```sh
+curl -X POST \
+  http://localhost:3000/wishlist \
+  -H 'Authorization: Bearer <auth token>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"itemId": "item it from items endpoint"
+}'
 ....
 ```
 
 ## [GET] /wishlist
-Lists user's wishlist item
+Lists user's wishlist item. Return 200 if query is successful
 ```sh
+curl -X GET \
+  http://localhost:3000/wishlist \
+  -H 'Authorization: Bearer <auth token>' \
+  -H 'Content-Type: application/json'
 ....
 ```
